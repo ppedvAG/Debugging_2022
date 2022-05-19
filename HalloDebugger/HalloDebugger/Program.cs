@@ -16,14 +16,18 @@ var zahl = 12;
 
 
 
-
 for (int i = 0; i < 10; i++)
 {
     Console.WriteLine($"Zahl {i}");
+
+    Debug.WriteLine("HALLLO DEbugger");
     if (i == 12)
     {
+
         Debugger.Break();
     }
+
+
 }
 
 SagHallo();
@@ -35,12 +39,27 @@ void SagHallo()
 {
     ZeigeTextInConsole("Hallo");
     ZeigeTextInConsole("");
-    ZeigeTextInConsole(null);
+    //ZeigeTextInConsole(null);
 }
 
 void ZeigeTextInConsole(string text)
 {
-    Debug.Assert(text != null);
+    //    Debug.Assert(text != null);
 
     Console.WriteLine($"{text} [{text.Length}]");
+    Console.WriteLine(String.Format("{0} [{1}]", text, text.Length));
+
+    Console.WriteLine(text + "[" + text.Length + "]");
+
+    try
+    {
+        if (true)
+            throw new ExecutionEngineException();
+    }
+    catch (Exception)
+    {
+        Console.WriteLine("Schade");
+        Console.ReadLine();
+    }
+
 }
